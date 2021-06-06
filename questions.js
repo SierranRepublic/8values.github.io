@@ -22,6 +22,5 @@ questions = [
             "arca": 0,
             "infl": 30
         }
-    },
-    
+    }
 ];
