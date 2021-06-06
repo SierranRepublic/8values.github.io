@@ -48,18 +48,18 @@ stats"></a></div></noscript>
 
 <!-- JavaScript for the test itself -->
 <script>
-    var max_econ, max_dipl, max_govt, max_scty; // Max possible scores
-    max_econ = max_dipl = max_govt = max_scty = 0;
-    let econ_array = new Array(questions.length);
-    let dipl_array = new Array(questions.length);
-    let govt_array = new Array(questions.length);
+    var max_tech, max_arca, max_infl, max_scty; // Max possible scores
+    max_tech = max_arca = max_infl = max_scty = 0;
+    let tech_array = new Array(questions.length);
+    let arca_array = new Array(questions.length);
+    let infl_array = new Array(questions.length);
     let scty_array = new Array(questions.length);
     var qn = 0; // Question number
     init_question();
     for (var i = 0; i < questions.length; i++) {
-        max_econ += Math.abs(questions[i].effect.econ)
-        max_dipl += Math.abs(questions[i].effect.dipl)
-        max_govt += Math.abs(questions[i].effect.govt)
+        max_tech += Math.abs(questions[i].effect.tech)
+        max_arca += Math.abs(questions[i].effect.arca)
+        max_infl += Math.abs(questions[i].effect.infl)
         max_scty += Math.abs(questions[i].effect.scty)
     }
     function init_question() {
@@ -76,9 +76,9 @@ stats"></a></div></noscript>
     }
 
     function next_question(mult) {
-        econ_array[qn] = mult*questions[qn].effect.econ
-        dipl_array[qn] = mult*questions[qn].effect.dipl
-        govt_array[qn] = mult*questions[qn].effect.govt
+        tech_array[qn] = mult*questions[qn].effect.tech
+        arca_array[qn] = mult*questions[qn].effect.arca
+        infl_array[qn] = mult*questions[qn].effect.infl
         scty_array[qn] = mult*questions[qn].effect.scty
         qn++;
         if (qn < questions.length) {
@@ -101,14 +101,14 @@ stats"></a></div></noscript>
     }
 
     function results() {
-        let final_econ = econ_array.reduce((a, b) => a + b, 0)
-        let final_dipl = dipl_array.reduce((a, b) => a + b, 0)
-        let final_govt = govt_array.reduce((a, b) => a + b, 0)
+        let final_tech = tech_array.reduce((a, b) => a + b, 0)
+        let final_arca = arca_array.reduce((a, b) => a + b, 0)
+        let final_infl = infl_array.reduce((a, b) => a + b, 0)
         let final_scty = scty_array.reduce((a, b) => a + b, 0)
         location.href = `results.html`
-            + `?e=${calc_score(final_econ,max_econ)}`
-            + `&d=${calc_score(final_dipl,max_dipl)}`
-            + `&g=${calc_score(final_govt,max_govt)}`
+            + `?e=${calc_score(final_tech,max_tech)}`
+            + `&d=${calc_score(final_arca,max_arca)}`
+            + `&g=${calc_score(final_infl,max_infl)}`
             + `&s=${calc_score(final_scty,max_scty)}`
     }
 </script>
