@@ -4,7 +4,8 @@ questions = [
         "effect": {
             "tech": 30,
             "arca": 0,
-            "infl": 0
+            "infl": 0,
+            "soci": 0
         }
     },
     {
@@ -12,7 +13,8 @@ questions = [
         "effect": {
             "tech": 0,
             "arca": 30,
-            "infl": 0
+            "infl": 0,
+            "soci": 0
         }
     },
     {
@@ -20,7 +22,8 @@ questions = [
         "effect": {
             "tech": 0,
             "arca": 0,
-            "infl": 30
+            "infl": 30,
+            "soci": 0
         }
     }
 ];
